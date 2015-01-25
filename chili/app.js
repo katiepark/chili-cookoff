@@ -10,6 +10,7 @@ var monk = require('monk');
 var db = monk('localhost:27017/chili');
 
 var routes = require('./routes/index');
+var votes = require('./routes/votes');
 var users = require('./routes/users');
 
 var app = express();
@@ -34,6 +35,8 @@ app.use(function(req, res, next) {
 
 app.use('/', routes);
 app.use('/users', users);
+
+app.get('/votes', votes.findAllVotes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -65,6 +68,5 @@ app.use(function(err, req, res, next) {
         error: {}
     });
 });
-
 
 module.exports = app;
