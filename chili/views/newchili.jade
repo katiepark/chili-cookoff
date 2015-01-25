@@ -5,4 +5,15 @@ block content
     form#formAddChili(name='addchili',method='post',action='/addchili')
         input#inputChiliName(type='text', placeholder='chiliname', name='chiliname')
         input#inputChiliCreator(type='text', placeholder='chili creator', name='chilicreator')
+        label
+            input#inputChiliVeg(type='checkbox', name='chiliveg')/
+            | Vegetarian
         button#btnSubmit(type='submit') submit
+
+    div
+        h2.
+            Current chilis
+        ul
+            each dish, i in dishlist
+                li.
+                    #{dish.dishname}
