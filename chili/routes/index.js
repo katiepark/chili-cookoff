@@ -64,7 +64,7 @@ router.post('/addchili', function(req, res) {
 /* POST to Chili Vote Service */
 router.post('/submitvote', function(req, res) {
     var db = req.db,
-        collection = db.get('chilivote');
+        collection = db.get('chili_vote');
 
     var vote_info = req.body;
 
