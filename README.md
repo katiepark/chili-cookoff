@@ -10,3 +10,5 @@ supposed to begin! AND WHAT EVEN IS JADE.
     npm install -g express
     npm install -g express-generator
     brew install mongodb
+    cd chili
+    npm install
