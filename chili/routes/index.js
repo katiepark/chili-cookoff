@@ -54,12 +54,7 @@ router.post('/submitvote', function(req, res) {
     var db = req.db,
         collection = db.get('chilivote');
 
-    var dish_id = req.body.dish_id,
-        dish_name = req.body.dish_name,
-        vote_info = req.body.ratings;
-
-    vote_info['dish_id'] = dish_id;
-    vote_info['dish_name'] = dish_name;
+    var vote_info = req.body;
 
     collection.insert(vote_info, function(err, doc) {
         if (err) {
