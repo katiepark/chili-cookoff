@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var mongo = require('mongodb');
 var monk = require('monk');
-var db = monk('localhost:27017/chili');
+var db = monk(process.env.MONGOSOUP_URL || 'localhost:27017/chili');
 
 var routes = require('./routes/index');
 var votes = require('./routes/votes');
