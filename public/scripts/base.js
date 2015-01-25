@@ -68,7 +68,7 @@ $(function(){
 			console.log("====== TODO: submit =====");
 			console.log(data);
 
-            $.post('submitvote', data);
+            $.post('submit', data);
 
 			this.freezeForm(form);
 		},

@@ -7,12 +7,12 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET to New Chili Service */
-router.get('/newchili', function(req, res) {
+router.get('/new', function(req, res) {
     var db = req.db,
         collection = db.get('chili_info');
 
     collection.find({}, {}, function(e, docs) {
-        res.render('newchili', {
+        res.render('new', {
             title: 'Add new chili',
             dishlist: docs
         });
@@ -20,7 +20,7 @@ router.get('/newchili', function(req, res) {
 });
 
 /* POST to New Chili Service */
-router.post('/addchili', function(req, res) {
+router.post('/add', function(req, res) {
     var db = req.db;
 
     // Get form values from name attributes
@@ -47,7 +47,7 @@ router.post('/addchili', function(req, res) {
 });
 
 /* GET to Chili Vote Service */
-router.get('/chilivote', function(req, res) {
+router.get('/vote', function(req, res) {
     var db = req.db;
     var collection = db.get('chili_info');
     collection.find({}, {}, function(e, docs){
@@ -60,7 +60,7 @@ router.get('/chilivote', function(req, res) {
 });
 
 /* POST to Chili Vote Service */
-router.post('/submitvote', function(req, res) {
+router.post('/submit', function(req, res) {
     var db = req.db,
         collection = db.get('chili_vote');
 
