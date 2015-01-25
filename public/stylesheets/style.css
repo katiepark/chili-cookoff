@@ -166,8 +166,7 @@ input[type=text] {
 	width: 100%;
 	clear: both;
 	border: 1px solid #aaa;
-	padding-top: 8px;
-	padding-bottom: 8px;
+	padding: 8px 5px;
 	font-size: 1.2em;
 
 	-webkit-border-radius: 0px;

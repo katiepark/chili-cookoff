@@ -3,7 +3,7 @@ extends layout
 block content
     section(class="t-center")
         h1(class="f-amatic") #{title}
-        form#formAddChili(name='addchili',method='post',action='/addchili', class="f-droidsans mt20")
+        form#formAddChili(name='add',method='post',action='/add', class="f-droidsans mt20")
             input#inputChiliName(type='text', placeholder='Name of your dish', name='chiliname', class="mt10")
             input#inputChiliCreator(type='text', placeholder='Name of the chef', name='chilicreator', class="mt10")
             label(class="mt10")

@@ -41,7 +41,7 @@ router.post('/add', function(req, res) {
             // Return an error if failure
             res.send('There was a problem adding information to the database.');
         } else {
-            res.redirect('newchili');
+            res.redirect('new');
         }
     });
 });
@@ -51,7 +51,7 @@ router.get('/vote', function(req, res) {
     var db = req.db;
     var collection = db.get('chili_info');
     collection.find({}, {}, function(e, docs){
-        res.render('chilivote', {
+        res.render('vote', {
             tagline: 'Chili cook-off',
             title: 'Rate the chili',
             dishlist: docs
