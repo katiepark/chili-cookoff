@@ -7,7 +7,7 @@ block content
         select(class="f-droidsans js-dropdown mt20")
             option(value="null") Pick a chili to rate
             each dish, i in dishlist
-                option(value="#{dish.dishname}") #{dish.dishname}
+                option(value="#{dish._id}") #{dish.dishname}
 
     section
         - var categories = ['Aroma', 'Consistency', 'Color', 'Taste']

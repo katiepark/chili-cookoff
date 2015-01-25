@@ -8,7 +8,7 @@ $(function(){
 
 			$('.js-dropdown').on('change', function(){
 				var value = $(this).find('option:selected').val(),
-					$rubric = $('.chili-rubric[data-chili="' + value + '"]');
+					$rubric = $('.chili-rubric[data-id="' + value + '"]');
 
 				if (value !== 'null'){
 					self.showRubric($rubric);
@@ -19,7 +19,7 @@ $(function(){
 
 			$('.js-radio-fieldset').on('change', function(){
 				var value = $('.js-dropdown').find('option:selected').val(),
-					$rubric = $('.chili-rubric[data-chili="' + value + '"]');
+					$rubric = $('.chili-rubric[data-id="' + value + '"]');
 
 				allChecked = self.countChecked($rubric.find('input[type="radio"]:checked'), $rubric.find('.js-radio-fieldset').length);
 
