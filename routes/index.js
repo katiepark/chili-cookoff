@@ -72,4 +72,10 @@ router.post('/submit', function(req, res) {
         }
     });
 });
+
+/* GET to winner */
+router.get('/winner', function(req, res){
+    res.render('winner', { tagline: 'The chili cook-off winner is...', title: 'PostGraphics chili cook-off winner' });
+});
+
 module.exports = router;
