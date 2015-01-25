@@ -1,5 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  section(class="t-center")
+    p(class="t-cap t-teal") Welcome to
+    h1(class="f-amatic") #{title}
+
+    button(class="js-vote f-droidsans t-white t-center t-cap bg-babyblue mtb40", onclick="window.location.href='/chilivote'") Vote

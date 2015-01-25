@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'The PostGraphics chili cook-off' });
 });
 
 router.get('/dishlist', function(req, res) {
@@ -12,6 +12,18 @@ router.get('/dishlist', function(req, res) {
     collection.find({}, {}, function(e,docs) {
         res.render('dishlist', {
             'dishlist': docs
+        });
+    });
+});
+
+router.get('/chilivote', function(req, res) {
+    var db = req.db;
+    var collection = db.get('chili_info');
+    collection.find({}, {}, function(e, docs){
+        res.render('chilivote', {
+            tagline: 'Chili cook-off',
+            title: 'Rate the chili',
+            dishlist: docs
         });
     });
 });

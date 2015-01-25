@@ -1,0 +1,31 @@
+extends layout
+
+block content
+    section(class="t-center")
+        p(class="t-cap t-teal mb0") #{tagline}
+        h1(class="f-amatic") #{title}
+        select(class="f-droidsans js-dropdown mt20")
+            option(value="null") Pick a chili to rate
+            each dish, i in dishlist
+                option(value="#{dish.dishname}") #{dish.dishname}
+
+    section
+        - var categories = ['Aroma', 'Consistency', 'Color', 'Taste']
+        each dish, i in dishlist
+            form(data-chili="#{dish.dishname}", class="f-droidsans chili-rubric js-disabled hidden")
+                each cat, i in categories
+                    fieldset(class="js-radio-fieldset")
+                        - var catslug = cat.toLowerCase()
+                        label(for="#{catslug}", name="#{catslug}") #{cat}
+                        input(type="radio", name="#{catslug}", value="1", class="t-center t-white")
+                        input(type="radio", name="#{catslug}", value="2", class="t-center t-white")
+                        input(type="radio", name="#{catslug}", value="3", class="t-center t-white")
+                        input(type="radio", name="#{catslug}", value="4", class="t-center t-white")
+                        input(type="radio", name="#{catslug}", value="5", class="t-center t-white")
+
+
+                div(class="t-center")
+                    button(type="submit", class="js-submit f-droidsans t-white t-center t-cap bg-babyblue mtb20") Submit
+
+    script(type='text/javascript', src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js')
+    script(type='text/javascript', src='/scripts/app.js')
