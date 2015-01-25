@@ -5,6 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('localhost:27107/chili');
+
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
