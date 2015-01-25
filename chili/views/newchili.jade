@@ -1,19 +1,21 @@
 extends layout
 
 block content
-    h1= title
-    form#formAddChili(name='addchili',method='post',action='/addchili')
-        input#inputChiliName(type='text', placeholder='Name of your dish', name='chiliname')
-        input#inputChiliCreator(type='text', placeholder='Name of the chef', name='chilicreator')
-        label
-            input#inputChiliVeg(type='checkbox', name='chiliveg')/
-            | Vegetarian
-        button#btnSubmit(type='submit') submit
+    section(class="t-center")
+        h1(class="f-amatic") #{title}
+        form#formAddChili(name='addchili',method='post',action='/addchili', class="f-droidsans mt20")
+            input#inputChiliName(type='text', placeholder='Name of your dish', name='chiliname', class="mt10")
+            input#inputChiliCreator(type='text', placeholder='Name of the chef', name='chilicreator', class="mt10")
+            label(class="mt10")
+                input#inputChiliVeg(type='checkbox', name='chiliveg')/
+                | Vegetarian
+            div(class="t-center")
+                button(type="submit", class="js-submit f-droidsans t-white t-center t-cap bg-babyblue mtb20") Submit
 
-    div
-        h2.
-            Current chilis
-        ul
+    section(class="f-droidsans mt20")
+        div
+            h2(class="t-bold").
+                Current chilis
             each dish, i in dishlist
-                li.
+                p(class="mb0").
                     #{dish.dishname}
