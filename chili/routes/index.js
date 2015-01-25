@@ -20,4 +20,9 @@ router.get('/dishlist', function(req, res) {
     });
 });
 
+/* GET to New Chili Service */
+router.get('/newchili', function(req, res) {
+    res.render('newchili', { title: 'Add new chili' });
+});
+
 module.exports = router;
