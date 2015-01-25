@@ -35,7 +35,7 @@ router.post('/addchili', function(req, res) {
     collection.insert({
         'dishname': dishname,
         'creator': creator,
-        'vegetarian': vegetarian || false
+        'vegetarian': vegetarian ? true : false
     }, function(err, doc) {
         if (err) {
             // Return an error if failure

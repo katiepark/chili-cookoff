@@ -3,8 +3,8 @@ extends layout
 block content
     h1= title
     form#formAddChili(name='addchili',method='post',action='/addchili')
-        input#inputChiliName(type='text', placeholder='chiliname', name='chiliname')
-        input#inputChiliCreator(type='text', placeholder='chili creator', name='chilicreator')
+        input#inputChiliName(type='text', placeholder='Name of your dish', name='chiliname')
+        input#inputChiliCreator(type='text', placeholder='Name of the chef', name='chilicreator')
         label
             input#inputChiliVeg(type='checkbox', name='chiliveg')/
             | Vegetarian
