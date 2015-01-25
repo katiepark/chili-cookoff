@@ -11,6 +11,7 @@ var db = monk('localhost:27017/chili');
 
 var routes = require('./routes/index');
 var votes = require('./routes/votes');
+var dishes = require('./routes/dishes');
 var users = require('./routes/users');
 
 var app = express();
@@ -36,8 +37,10 @@ app.use(function(req, res, next) {
 app.use('/', routes);
 app.use('/users', users);
 
+// Q: When do I use .use vs .get?
 app.get('/votes', votes.findAllVotes);
 app.get('/votes/by_dish', votes.findVotesByDish);
+app.get('/dishes', dishes.findDishes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
