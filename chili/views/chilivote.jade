@@ -12,7 +12,7 @@ block content
     section
         - var categories = ['Aroma', 'Consistency', 'Color', 'Taste']
         each dish, i in dishlist
-            form(data-chili="#{dish.dishname}", class="f-droidsans chili-rubric js-disabled hidden")
+            form(data-chili="#{dish.dishname}", data-id="#{dish._id}", class="f-droidsans chili-rubric js-disabled hidden")
                 each cat, i in categories
                     fieldset(class="js-radio-fieldset")
                         - var catslug = cat.toLowerCase()
