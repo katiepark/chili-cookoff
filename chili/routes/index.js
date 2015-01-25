@@ -16,18 +16,6 @@ router.get('/dishlist', function(req, res) {
     });
 });
 
-router.get('/chilivote', function(req, res) {
-    var db = req.db;
-    var collection = db.get('chili_info');
-    collection.find({}, {}, function(e, docs){
-        res.render('chilivote', {
-            tagline: 'Chili cook-off',
-            title: 'Rate the chili',
-            dishlist: docs
-        });
-    });
-});
-
 /* GET to New Chili Service */
 router.get('/newchili', function(req, res) {
     res.render('newchili', { title: 'Add new chili' });
@@ -58,6 +46,19 @@ router.post('/addchili', function(req, res) {
             // Forward to success page
             res.redirect('dishlist');
         }
+    });
+});
+
+/* GET to Chili Vote Service */
+router.get('/chilivote', function(req, res) {
+    var db = req.db;
+    var collection = db.get('chili_info');
+    collection.find({}, {}, function(e, docs){
+        res.render('chilivote', {
+            tagline: 'Chili cook-off',
+            title: 'Rate the chili',
+            dishlist: docs
+        });
     });
 });
 
