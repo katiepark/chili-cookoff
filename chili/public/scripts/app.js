@@ -46,10 +46,11 @@ $(function(){
 			el.removeClass('hidden').siblings('.chili-rubric').addClass('hidden');
 		},
 		getRatings: function(form){
-			var $chili = $('.js-dropdown').find('option:selected').val();
+			var $chili = form.attr('data-chili'),
+				chili_id = form.attr('data-id');
 			var d = {
-				name : $chili,
-				ratings : {}
+				id: chili_id,
+				dishname : $chili
 			};
 
 			$.each(form.find('.js-radio-fieldset'), function(index, criterion){
@@ -57,7 +58,7 @@ $(function(){
 					cat = $checked.attr('name'),
 					val = $checked.val();
 
-				d.ratings[cat] = val;
+				d[cat] = val;
 			});
 
 			return d;
