@@ -37,6 +37,7 @@ app.use('/', routes);
 app.use('/users', users);
 
 app.get('/votes', votes.findAllVotes);
+app.get('/votes/by_dish', votes.findVotesByDish);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
