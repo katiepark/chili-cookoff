@@ -18,7 +18,7 @@ $(function(){
                 self.data.sums = self.prettifyData(d);
                 self.data.totalRating = self.getTotals(self.data.sums);
 
-                self.returnWinner($('.dishname'), $('.rating'));
+                self.returnWinner();
             });
         },
         prettifyData: function(data){
@@ -28,6 +28,8 @@ $(function(){
                     obj[vote.id] = {
                         dishname: vote.dishname,
                         votecount: 1,
+                        creator: vote.creator,
+                        vegetarian: vote.vegetarian,
                         cat : {
                             color: parseInt(vote.color, 10),
                             taste: parseInt(vote.taste, 10),
@@ -62,12 +64,12 @@ $(function(){
             });
             return obj;
         },
-        returnWinner: function(winnerContainer, ratingContainer){
+        returnWinner: function(){
             var self = this;
 
             var winner = self.getHighestRating(self.data.totalRating, 'rating');
-            winnerContainer.html(winner.dishname);
-            ratingContainer.html(winner.rating.toFixed(2));
+            $('.dishname').html(winner.creator + '\'s ' + winner.dishname);
+            $('.rating').html('<strong class="t-red">' + winner.rating.toFixed(0) + '</strong> out of 20');
         },
         getHighestRating: function(d, prop){
             var highest = 0,

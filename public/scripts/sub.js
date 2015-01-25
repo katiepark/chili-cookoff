@@ -47,10 +47,14 @@ $(function(){
 		},
 		getRatings: function(form){
 			var $chili = form.attr('data-chili'),
-				chili_id = form.attr('data-id');
+				chili_id = form.attr('data-id'),
+				vegetarian = form.attr('data-vegetarian'),
+				creator = form.attr('data-creator');
 			var d = {
 				id: chili_id,
-				dishname : $chili
+				dishname : $chili,
+				vegetarian: vegetarian,
+				creator: creator
 			};
 
 			$.each(form.find('.js-radio-fieldset'), function(index, criterion){
