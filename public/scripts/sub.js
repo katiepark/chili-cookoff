@@ -8,7 +8,7 @@ $(function(){
 
 			$('.js-dropdown').on('change', function(){
 				var value = $(this).find('option:selected').val(),
-					$rubric = $('.chili-rubric[data-chili="' + value + '"]');
+					$rubric = $('.chili-rubric[data-id="' + value + '"]');
 
 				if (value !== 'null'){
 					self.showRubric($rubric);
@@ -19,7 +19,7 @@ $(function(){
 
 			$('.js-radio-fieldset').on('change', function(){
 				var value = $('.js-dropdown').find('option:selected').val(),
-					$rubric = $('.chili-rubric[data-chili="' + value + '"]');
+					$rubric = $('.chili-rubric[data-id="' + value + '"]');
 
 				allChecked = self.countChecked($rubric.find('input[type="radio"]:checked'), $rubric.find('.js-radio-fieldset').length);
 
@@ -47,10 +47,14 @@ $(function(){
 		},
 		getRatings: function(form){
 			var $chili = form.attr('data-chili'),
-				chili_id = form.attr('data-id');
+				chili_id = form.attr('data-id'),
+				vegetarian = form.attr('data-vegetarian'),
+				creator = form.attr('data-creator');
 			var d = {
 				id: chili_id,
-				dishname : $chili
+				dishname : $chili,
+				vegetarian: vegetarian,
+				creator: creator
 			};
 
 			$.each(form.find('.js-radio-fieldset'), function(index, criterion){
@@ -65,9 +69,6 @@ $(function(){
 
 		},
 		submitEntry: function(data, form){
-			console.log("====== TODO: submit =====");
-			console.log(data);
-
             $.post('submit', data);
 
 			this.freezeForm(form);
